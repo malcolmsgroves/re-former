@@ -1,0 +1,41 @@
+<% if flash[:notice] %>
+  <div class="notice failure">
+    <% flash[:notice].each do |item| %>
+      <li> <%= item %> </li>
+    <% end %>
+  </div>
+<% end %>
+
+<div>
+<!--
+  <form accept-charset="UTF-8" action="/users" method="post">
+    Username: <input type="text" name="user[:name]"><br>
+    Email: <input type="text" name="user[:email]"><br>
+    Password: <input type="password" name="user[:password]"><br>
+    <input type="hidden"
+           name="authenticity_token"
+           value="<%= form_authenticity_token %>">
+    <input type="submit" value="Submit">
+  </form>
+
+
+
+  <%= form_tag("/users", method: "post") do %>
+    <%= label_tag(:name, "Name:") %>
+    <%= text_field_tag(:name) %> <br>
+    <%= label_tag(:email, "Email:") %>
+    <%= text_field_tag(:email) %> <br>
+    <%= label_tag(:password, "Password:") %>
+    <%= password_field_tag(:password) %> <br>
+    <%= submit_tag("Submit") %>
+  <% end %>
+
+-->
+  <%= form_for @user do |f| %>
+    Name: <%= f.text_field :name, placeholder: "John Doe" %><br>
+    Email : <%= f.text_field :email, placeholder: "jdoe@example.com" %><br>
+    Password : <%= f.password_field :password %><br>
+    <%= f.submit %>
+  <% end %>
+
+</div>

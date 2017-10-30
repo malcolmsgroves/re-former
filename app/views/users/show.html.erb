@@ -1,0 +1,13 @@
+<% if flash[:notice] %>
+  <div class="notice success">
+    <% flash[:notice].each do |item| %>
+      <li> <%= item %> </li>
+    <% end %>
+  </div>
+<% end %>
+<div>
+  <p>
+    Name: <%= @user.name %> <br/>
+    Email: <%= @user.email %> <br/>
+    <%= link_to "Edit", edit_user_path %>
+</div>

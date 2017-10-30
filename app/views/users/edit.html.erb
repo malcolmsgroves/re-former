@@ -1,0 +1,15 @@
+<% if flash[:notice] %>
+  <div class="notice failure">
+    <% flash[:notice].each do |item| %>
+      <li> <%= item %> </li>
+    <% end %>
+  </div>
+<% end %>
+<div>
+  <%= form_for @user do |f| %>
+    Name: <%= f.text_field :name, placeholder: "John Doe" %><br>
+    Email : <%= f.text_field :email, placeholder: "jdoe@example.com" %><br>
+    Password : <%= f.password_field :password %><br>
+    <%= f.submit %>
+  <% end %>
+</div>
